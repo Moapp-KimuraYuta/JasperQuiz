@@ -1,0 +1,475 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6E7E92FE27C47F10B069DF6A /* Pods_JasperQuiz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0ECE91925ADE466699435F /* Pods_JasperQuiz.framework */; };
+		9534CB6727BE497800DD6198 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534CB6627BE497800DD6198 /* AppDelegate.swift */; };
+		9534CB6927BE497800DD6198 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534CB6827BE497800DD6198 /* SceneDelegate.swift */; };
+		9534CB6B27BE497800DD6198 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534CB6A27BE497800DD6198 /* ViewController.swift */; };
+		9534CB6E27BE497800DD6198 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9534CB6C27BE497800DD6198 /* Main.storyboard */; };
+		9534CB7027BE497B00DD6198 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9534CB6F27BE497B00DD6198 /* Assets.xcassets */; };
+		9534CB7327BE497B00DD6198 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9534CB7127BE497B00DD6198 /* LaunchScreen.storyboard */; };
+		9534CB7B27BE4CC200DD6198 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534CB7A27BE4CC200DD6198 /* QuizViewController.swift */; };
+		9534CB7F27BF4C4F00DD6198 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534CB7E27BF4C4F00DD6198 /* ScoreViewController.swift */; };
+		9534CB8127BF4E3100DD6198 /* JasperQuiz.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9534CB8027BF4E3100DD6198 /* JasperQuiz.csv */; };
+		957E9B5C27E3EF89003B8B76 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957E9B5B27E3EF89003B8B76 /* MyPage.storyboard */; };
+		957E9B5E27E3F239003B8B76 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E9B5D27E3F239003B8B76 /* MyPageViewController.swift */; };
+		957E9B6227E436FA003B8B76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E9B6127E436FA003B8B76 /* LoginViewController.swift */; };
+		9598F7B127DA6E5000DE6904 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9598F7B027DA6E5000DE6904 /* SignUpViewController.swift */; };
+		9598F7B327DAE89900DE6904 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9598F7B227DAE89900DE6904 /* UIColor-Extension.swift */; };
+		9598F7B527DAF3E900DE6904 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9598F7B427DAF3E900DE6904 /* GoogleService-Info.plist */; };
+		95FACD8827E44A7900BF2020 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FACD8727E44A7900BF2020 /* TabBarController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		28D6C6AD403679F11C9D1564 /* Pods-JasperQuiz.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JasperQuiz.debug.xcconfig"; path = "Target Support Files/Pods-JasperQuiz/Pods-JasperQuiz.debug.xcconfig"; sourceTree = "<group>"; };
+		779EE84C8D80458A86B1A411 /* Pods-JasperQuiz.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JasperQuiz.release.xcconfig"; path = "Target Support Files/Pods-JasperQuiz/Pods-JasperQuiz.release.xcconfig"; sourceTree = "<group>"; };
+		9534CB6327BE497800DD6198 /* JasperQuiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JasperQuiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9534CB6627BE497800DD6198 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9534CB6827BE497800DD6198 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		9534CB6A27BE497800DD6198 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9534CB6D27BE497800DD6198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9534CB6F27BE497B00DD6198 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9534CB7227BE497B00DD6198 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9534CB7427BE497B00DD6198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9534CB7A27BE4CC200DD6198 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
+		9534CB7E27BF4C4F00DD6198 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		9534CB8027BF4E3100DD6198 /* JasperQuiz.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = JasperQuiz.csv; sourceTree = "<group>"; };
+		957E9B5B27E3EF89003B8B76 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		957E9B5D27E3F239003B8B76 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		957E9B6127E436FA003B8B76 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		9598F7B027DA6E5000DE6904 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		9598F7B227DAE89900DE6904 /* UIColor-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
+		9598F7B427DAF3E900DE6904 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		95FACD8727E44A7900BF2020 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		EB0ECE91925ADE466699435F /* Pods_JasperQuiz.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JasperQuiz.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9534CB6027BE497800DD6198 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E7E92FE27C47F10B069DF6A /* Pods_JasperQuiz.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		33CAADB404AF67BA03BF9569 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB0ECE91925ADE466699435F /* Pods_JasperQuiz.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9534CB5A27BE497800DD6198 = {
+			isa = PBXGroup;
+			children = (
+				9534CB6527BE497800DD6198 /* JasperQuiz */,
+				9534CB6427BE497800DD6198 /* Products */,
+				C9F3285FD2F78BFEC663DB68 /* Pods */,
+				33CAADB404AF67BA03BF9569 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		9534CB6427BE497800DD6198 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9534CB6327BE497800DD6198 /* JasperQuiz.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9534CB6527BE497800DD6198 /* JasperQuiz */ = {
+			isa = PBXGroup;
+			children = (
+				9534CB6627BE497800DD6198 /* AppDelegate.swift */,
+				9534CB6827BE497800DD6198 /* SceneDelegate.swift */,
+				957E9B6127E436FA003B8B76 /* LoginViewController.swift */,
+				95FACD8727E44A7900BF2020 /* TabBarController.swift */,
+				9534CB6A27BE497800DD6198 /* ViewController.swift */,
+				9598F7B027DA6E5000DE6904 /* SignUpViewController.swift */,
+				9598F7B227DAE89900DE6904 /* UIColor-Extension.swift */,
+				9534CB6C27BE497800DD6198 /* Main.storyboard */,
+				957E9B5B27E3EF89003B8B76 /* MyPage.storyboard */,
+				957E9B5D27E3F239003B8B76 /* MyPageViewController.swift */,
+				9534CB8027BF4E3100DD6198 /* JasperQuiz.csv */,
+				9534CB7E27BF4C4F00DD6198 /* ScoreViewController.swift */,
+				9534CB7A27BE4CC200DD6198 /* QuizViewController.swift */,
+				9534CB6F27BE497B00DD6198 /* Assets.xcassets */,
+				9534CB7127BE497B00DD6198 /* LaunchScreen.storyboard */,
+				9534CB7427BE497B00DD6198 /* Info.plist */,
+				9598F7B427DAF3E900DE6904 /* GoogleService-Info.plist */,
+			);
+			path = JasperQuiz;
+			sourceTree = "<group>";
+		};
+		C9F3285FD2F78BFEC663DB68 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28D6C6AD403679F11C9D1564 /* Pods-JasperQuiz.debug.xcconfig */,
+				779EE84C8D80458A86B1A411 /* Pods-JasperQuiz.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9534CB6227BE497800DD6198 /* JasperQuiz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9534CB7727BE497B00DD6198 /* Build configuration list for PBXNativeTarget "JasperQuiz" */;
+			buildPhases = (
+				6D4928B821FC7E2F960DFE15 /* [CP] Check Pods Manifest.lock */,
+				9534CB5F27BE497800DD6198 /* Sources */,
+				9534CB6027BE497800DD6198 /* Frameworks */,
+				9534CB6127BE497800DD6198 /* Resources */,
+				4756080746594AD44D7E7CCC /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JasperQuiz;
+			productName = JasperQuiz;
+			productReference = 9534CB6327BE497800DD6198 /* JasperQuiz.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9534CB5B27BE497800DD6198 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					9534CB6227BE497800DD6198 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 9534CB5E27BE497800DD6198 /* Build configuration list for PBXProject "JasperQuiz" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9534CB5A27BE497800DD6198;
+			productRefGroup = 9534CB6427BE497800DD6198 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9534CB6227BE497800DD6198 /* JasperQuiz */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9534CB6127BE497800DD6198 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9534CB7327BE497B00DD6198 /* LaunchScreen.storyboard in Resources */,
+				957E9B5C27E3EF89003B8B76 /* MyPage.storyboard in Resources */,
+				9534CB7027BE497B00DD6198 /* Assets.xcassets in Resources */,
+				9598F7B527DAF3E900DE6904 /* GoogleService-Info.plist in Resources */,
+				9534CB8127BF4E3100DD6198 /* JasperQuiz.csv in Resources */,
+				9534CB6E27BE497800DD6198 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4756080746594AD44D7E7CCC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JasperQuiz/Pods-JasperQuiz-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JasperQuiz/Pods-JasperQuiz-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JasperQuiz/Pods-JasperQuiz-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D4928B821FC7E2F960DFE15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JasperQuiz-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9534CB5F27BE497800DD6198 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				957E9B6227E436FA003B8B76 /* LoginViewController.swift in Sources */,
+				9534CB6B27BE497800DD6198 /* ViewController.swift in Sources */,
+				9598F7B127DA6E5000DE6904 /* SignUpViewController.swift in Sources */,
+				95FACD8827E44A7900BF2020 /* TabBarController.swift in Sources */,
+				9534CB6727BE497800DD6198 /* AppDelegate.swift in Sources */,
+				9534CB7F27BF4C4F00DD6198 /* ScoreViewController.swift in Sources */,
+				9534CB6927BE497800DD6198 /* SceneDelegate.swift in Sources */,
+				9598F7B327DAE89900DE6904 /* UIColor-Extension.swift in Sources */,
+				9534CB7B27BE4CC200DD6198 /* QuizViewController.swift in Sources */,
+				957E9B5E27E3F239003B8B76 /* MyPageViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9534CB6C27BE497800DD6198 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9534CB6D27BE497800DD6198 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		9534CB7127BE497B00DD6198 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9534CB7227BE497B00DD6198 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9534CB7527BE497B00DD6198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9534CB7627BE497B00DD6198 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9534CB7827BE497B00DD6198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28D6C6AD403679F11C9D1564 /* Pods-JasperQuiz.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4SF6PKKS2A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JasperQuiz/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimu0929.JasperQuiz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9534CB7927BE497B00DD6198 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 779EE84C8D80458A86B1A411 /* Pods-JasperQuiz.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4SF6PKKS2A;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = JasperQuiz/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kimu0929.JasperQuiz;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9534CB5E27BE497800DD6198 /* Build configuration list for PBXProject "JasperQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9534CB7527BE497B00DD6198 /* Debug */,
+				9534CB7627BE497B00DD6198 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9534CB7727BE497B00DD6198 /* Build configuration list for PBXNativeTarget "JasperQuiz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9534CB7827BE497B00DD6198 /* Debug */,
+				9534CB7927BE497B00DD6198 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9534CB5B27BE497800DD6198 /* Project object */;
+}
