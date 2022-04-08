@@ -209,19 +209,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="goodJasper" translatesAutoresizingMaskIntoConstraints="NO" id="7lA-WS-pJa">
-                                <rect key="frame" x="57" y="264" width="300" height="448"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="SMA-nE-ec1"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="44" width="414" height="808"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAQ-lJ-CjC">
-                                <rect key="frame" x="10" y="94" width="394" height="36"/>
+                                <rect key="frame" x="80" y="94" width="254" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VuU-wc-fDq">
-                                <rect key="frame" x="57" y="712" width="300" height="70"/>
+                                <rect key="frame" x="57" y="752" width="300" height="70"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="BZc-H1-oZA"/>
@@ -237,28 +235,50 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UM-16-2AW" userLabel="fanLevelLabel">
-                                <rect key="frame" x="10" y="180" width="394" height="30"/>
+                                <rect key="frame" x="30" y="180" width="354" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yih-7R-fIg">
+                                <rect key="frame" x="57" y="662" width="300" height="70"/>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="0MS-uV-vVw"/>
+                                    <constraint firstAttribute="height" constant="70" id="T4Y-0s-Qd2"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="スコアを記録する">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="30"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="scoreSaveButton:" destination="xnY-a8-ald" eventType="touchUpInside" id="FJq-Ny-UQo"/>
+                                    <action selector="toTopButtonAction:" destination="xnY-a8-ald" eventType="touchUpInside" id="efy-eq-aF5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5CH-Ko-tAi"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rAQ-lJ-CjC" firstAttribute="leading" secondItem="5CH-Ko-tAi" secondAttribute="leading" constant="10" id="1zO-bE-rkg"/>
+                            <constraint firstItem="7lA-WS-pJa" firstAttribute="centerY" secondItem="zjU-DM-XRx" secondAttribute="centerY" id="1KI-yf-mqE"/>
+                            <constraint firstItem="rAQ-lJ-CjC" firstAttribute="leading" secondItem="5CH-Ko-tAi" secondAttribute="leading" constant="80" id="1zO-bE-rkg"/>
+                            <constraint firstItem="5CH-Ko-tAi" firstAttribute="trailing" secondItem="7lA-WS-pJa" secondAttribute="trailing" id="2cc-4N-Hxs"/>
                             <constraint firstItem="VuU-wc-fDq" firstAttribute="centerX" secondItem="zjU-DM-XRx" secondAttribute="centerX" id="2s7-uC-aBt"/>
                             <constraint firstItem="1UM-16-2AW" firstAttribute="top" secondItem="rAQ-lJ-CjC" secondAttribute="bottom" constant="50" id="3uk-hr-alS"/>
-                            <constraint firstItem="5CH-Ko-tAi" firstAttribute="trailing" secondItem="1UM-16-2AW" secondAttribute="trailing" constant="10" id="Hbs-t6-uGX"/>
+                            <constraint firstItem="VuU-wc-fDq" firstAttribute="top" secondItem="yih-7R-fIg" secondAttribute="bottom" constant="20" id="4LO-PQ-q5k"/>
+                            <constraint firstItem="5CH-Ko-tAi" firstAttribute="trailing" secondItem="1UM-16-2AW" secondAttribute="trailing" constant="30" id="Hbs-t6-uGX"/>
+                            <constraint firstItem="7lA-WS-pJa" firstAttribute="leading" secondItem="5CH-Ko-tAi" secondAttribute="leading" id="QQv-Ni-1te"/>
                             <constraint firstItem="1UM-16-2AW" firstAttribute="centerX" secondItem="zjU-DM-XRx" secondAttribute="centerX" id="UDC-UW-6yK"/>
-                            <constraint firstItem="7lA-WS-pJa" firstAttribute="height" secondItem="zjU-DM-XRx" secondAttribute="height" multiplier="0.5" id="YmI-jo-Vm2"/>
+                            <constraint firstItem="7lA-WS-pJa" firstAttribute="centerX" secondItem="zjU-DM-XRx" secondAttribute="centerX" id="WGh-G7-g4Z"/>
+                            <constraint firstItem="7lA-WS-pJa" firstAttribute="top" secondItem="5CH-Ko-tAi" secondAttribute="top" id="bfa-YQ-r5I"/>
                             <constraint firstItem="rAQ-lJ-CjC" firstAttribute="centerX" secondItem="zjU-DM-XRx" secondAttribute="centerX" id="cgP-nV-WMe"/>
-                            <constraint firstItem="5CH-Ko-tAi" firstAttribute="trailing" secondItem="rAQ-lJ-CjC" secondAttribute="trailing" constant="10" id="ez5-f8-uKH"/>
-                            <constraint firstItem="5CH-Ko-tAi" firstAttribute="bottom" secondItem="VuU-wc-fDq" secondAttribute="bottom" constant="80" id="mxM-wX-hTg"/>
-                            <constraint firstItem="1UM-16-2AW" firstAttribute="leading" secondItem="5CH-Ko-tAi" secondAttribute="leading" constant="10" id="nNc-no-1n8"/>
-                            <constraint firstItem="VuU-wc-fDq" firstAttribute="top" secondItem="7lA-WS-pJa" secondAttribute="bottom" id="oun-9a-Imp"/>
+                            <constraint firstItem="5CH-Ko-tAi" firstAttribute="trailing" secondItem="rAQ-lJ-CjC" secondAttribute="trailing" constant="80" id="ez5-f8-uKH"/>
+                            <constraint firstItem="5CH-Ko-tAi" firstAttribute="bottom" secondItem="VuU-wc-fDq" secondAttribute="bottom" constant="40" id="mxM-wX-hTg"/>
+                            <constraint firstItem="1UM-16-2AW" firstAttribute="leading" secondItem="5CH-Ko-tAi" secondAttribute="leading" constant="30" id="nNc-no-1n8"/>
+                            <constraint firstItem="yih-7R-fIg" firstAttribute="centerX" secondItem="zjU-DM-XRx" secondAttribute="centerX" id="nnf-IM-gwO"/>
                             <constraint firstItem="rAQ-lJ-CjC" firstAttribute="top" secondItem="5CH-Ko-tAi" secondAttribute="top" constant="50" id="q7d-Qw-0Ig"/>
-                            <constraint firstItem="7lA-WS-pJa" firstAttribute="centerX" secondItem="zjU-DM-XRx" secondAttribute="centerX" id="wcb-Dl-t2K"/>
                         </constraints>
                     </view>
                     <connections>
@@ -322,6 +342,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

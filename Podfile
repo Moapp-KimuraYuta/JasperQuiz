@@ -11,5 +11,6 @@ target 'JasperQuiz' do
   pod 'Firebase/Firestore'
   pod 'PKHUD', '~> 5.0'
   pod 'Firebase/Storage'
+  pod 'GoogleSignIn'
 
 end

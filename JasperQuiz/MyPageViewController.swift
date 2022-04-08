@@ -42,8 +42,8 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         
         guard let userId = Auth.auth().currentUser?.uid else { fatalError() }
         storage.child("images/\(userId).png").putData(imgData,
-                                                 metadata: nil,
-                                                 completion: { _, error in
+                                                      metadata: nil,
+                                                      completion: { _, error in
             guard error == nil else {
                 HUD.hide{ (_) in HUD.flash(.error, delay: 1)}
                 return
@@ -72,7 +72,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             })
         })
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         picker.dismiss(animated: true,completion: nil)
     }
@@ -81,6 +81,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var createdAtLabel: UILabel!
+    @IBOutlet weak var lastScoreLabel: UILabel!
     @IBOutlet weak var logoutButton: UIButton!
     @IBAction func tappedLogoutButton(_ sender: Any) {
         handleLogout()
@@ -89,7 +90,9 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     private func handleLogout() {
         do{
             try Auth.auth().signOut()
-            self.navigationController?.popViewController(animated: true)
+            UserDefaults.standard.removeObject(forKey: "email")
+            UserDefaults.standard.removeObject(forKey: "password")
+            presentToLoginViewController()
         } catch (let err) {
             print("ログアウトに失敗しました。:\(err)")
         }
@@ -98,23 +101,33 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         bioTextField.delegate = self
-        self.navigationItem.hidesBackButton = true
         logoutButton.layer.cornerRadius = 10
         bioChangeButton.layer.cornerRadius = 10
         iconImage.contentMode = .scaleAspectFit
         
-        
-        if let user = user {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let userRef = Firestore.firestore().collection("users").document(uid)
+        userRef.getDocument{ ( snapshot, err ) in
+            if let err = err {
+                print("ユーザー情報の取得に失敗しました。\(err)")
+            }
+            guard let data = snapshot?.data() else { return }
             
-            nameLabel.text = "name: " + user.name
-            emailLabel.text = "email: " + user.email
+            let user = User.init(dic: data)
             
+            self.nameLabel.text = "name: " + user.name
+            self.emailLabel.text = "email: " + user.email
+            self.lastScoreLabel.text = "lastScore: " + String(user.lastScore) + "点"
             
-            let dateString = dateFormatterForCreatedAt(date: user.createdAt.dateValue())
-            createdAtLabel.text = "createdAt: " + dateString
+            let dateString = self.dateFormatterForCreatedAt(date: user.createdAt.dateValue())
+            self.createdAtLabel.text = "createdAt: " + dateString
             
-            bioTextField.text = user.bio
+            self.bioTextField.text = user.bio
             let urlString = user.iconUrl
             guard let url = URL(string: urlString) else { return }
             
@@ -128,46 +141,40 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
                 }
             })
             task.resume()
-            NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+            
         }
     }
     
     private func updateProfile() {
-            HUD.show(.progress, onView: self.view)
-            guard let userId = Auth.auth().currentUser?.uid else { fatalError() }
-            let ref = Firestore.firestore().collection("users").document(userId)
-            
-            ref.updateData([
-                "bio": bioTextField.text ?? ""
-            ]) { err in
-                if let err = err {
-                    print("情報の更新に失敗しました: \(err)")
-                    HUD.hide{ (_) in HUD.flash(.error, delay: 1)}
-                } else {
-                    print("情報の更新ができました！")
-                    HUD.hide{ (_) in HUD.flash(.success, delay: 1)}
-                }
+        HUD.show(.progress, onView: self.view)
+        guard let userId = Auth.auth().currentUser?.uid else { fatalError() }
+        let ref = Firestore.firestore().collection("users").document(userId)
+        
+        ref.updateData([
+            "bio": bioTextField.text ?? ""
+        ]) { err in
+            if let err = err {
+                print("情報の更新に失敗しました: \(err)")
+                HUD.hide{ (_) in HUD.flash(.error, delay: 1)}
+            } else {
+                print("情報の更新ができました！")
+                HUD.hide{ (_) in HUD.flash(.success, delay: 1)}
             }
-
         }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        confirmLoggedInUser()
-//    }
-    
-    private func confirmLoggedInUser(){
-        if Auth.auth().currentUser?.uid == nil || user == nil {
-            presentToMainViewController()
-        }
+        
     }
-    private func presentToMainViewController() {
-//        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-//        let signUpViewController = storyBoard.instantiateViewController(identifier: "SignUpViewController") as! SignUpViewController
-        let signUpViewController = SignUpViewController()
-        navigationController?.pushViewController(signUpViewController, animated: true)
+    
+    
+    private func presentToLoginViewController() {
+        let storyBoard = UIStoryboard(name: "Login", bundle: nil)
+        let loginViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
+        let navController = UINavigationController(rootViewController: loginViewController)
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated:true, completion:nil)
     }
+    
     private func dateFormatterForCreatedAt(date:Date) -> String {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -198,7 +205,7 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     }
     func textFieldDidChangeSelection(_ textField: UITextField) {
         guard let bio = bioTextField.text else { return }
-
+        
         if bio.count > maxBioLength {
             bioChangeButton.isEnabled = false
             bioChangeButton.backgroundColor = UIColor.rgb(red: 150, green: 150, blue: 150)

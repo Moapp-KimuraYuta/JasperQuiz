@@ -6,12 +6,22 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseStorage
+import FirebaseCore
+import PKHUD
 
 class ScoreViewController: UIViewController {
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var fanLevelLabel: UILabel!
     @IBOutlet weak var goodScoreImage: UIImageView!
+    @IBAction func scoreSaveButton(_ sender: Any) {
+        saveScore()
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
+    }
     
     var correct = 0
     var allCorrecrTF = false
@@ -36,6 +46,24 @@ class ScoreViewController: UIViewController {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
     }
     
+    private func saveScore() {
+            HUD.show(.progress, onView: self.view)
+            guard let userId = Auth.auth().currentUser?.uid else { fatalError() }
+            let ref = Firestore.firestore().collection("users").document(userId)
+            
+            ref.updateData([
+                "lastScore": self.correct
+            ]) { err in
+                if let err = err {
+                    print("情報の更新に失敗しました: \(err)")
+                    HUD.hide{ (_) in HUD.flash(.error, delay: 1)}
+                } else {
+                    print("情報の更新ができました！")
+                    HUD.hide{ (_) in HUD.flash(.success, delay: 1)}
+                }
+            }
+
+        }
     /*
     // MARK: - Navigation
 

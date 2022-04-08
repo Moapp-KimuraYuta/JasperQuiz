@@ -17,6 +17,7 @@
 		9534CB7B27BE4CC200DD6198 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534CB7A27BE4CC200DD6198 /* QuizViewController.swift */; };
 		9534CB7F27BF4C4F00DD6198 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9534CB7E27BF4C4F00DD6198 /* ScoreViewController.swift */; };
 		9534CB8127BF4E3100DD6198 /* JasperQuiz.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9534CB8027BF4E3100DD6198 /* JasperQuiz.csv */; };
+		953FCF6627FEAB4600707C5D /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 953FCF6527FEAB4600707C5D /* Login.storyboard */; };
 		957E9B5C27E3EF89003B8B76 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 957E9B5B27E3EF89003B8B76 /* MyPage.storyboard */; };
 		957E9B5E27E3F239003B8B76 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E9B5D27E3F239003B8B76 /* MyPageViewController.swift */; };
 		957E9B6227E436FA003B8B76 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 957E9B6127E436FA003B8B76 /* LoginViewController.swift */; };
@@ -40,6 +41,7 @@
 		9534CB7A27BE4CC200DD6198 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		9534CB7E27BF4C4F00DD6198 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		9534CB8027BF4E3100DD6198 /* JasperQuiz.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = JasperQuiz.csv; sourceTree = "<group>"; };
+		953FCF6527FEAB4600707C5D /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		957E9B5B27E3EF89003B8B76 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		957E9B5D27E3F239003B8B76 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		957E9B6127E436FA003B8B76 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				9534CB6C27BE497800DD6198 /* Main.storyboard */,
 				957E9B5B27E3EF89003B8B76 /* MyPage.storyboard */,
 				957E9B5D27E3F239003B8B76 /* MyPageViewController.swift */,
+				953FCF6527FEAB4600707C5D /* Login.storyboard */,
 				9534CB8027BF4E3100DD6198 /* JasperQuiz.csv */,
 				9534CB7E27BF4C4F00DD6198 /* ScoreViewController.swift */,
 				9534CB7A27BE4CC200DD6198 /* QuizViewController.swift */,
@@ -183,6 +186,7 @@
 			files = (
 				9534CB7327BE497B00DD6198 /* LaunchScreen.storyboard in Resources */,
 				957E9B5C27E3EF89003B8B76 /* MyPage.storyboard in Resources */,
+				953FCF6627FEAB4600707C5D /* Login.storyboard in Resources */,
 				9534CB7027BE497B00DD6198 /* Assets.xcassets in Resources */,
 				9598F7B527DAF3E900DE6904 /* GoogleService-Info.plist in Resources */,
 				9534CB8127BF4E3100DD6198 /* JasperQuiz.csv in Resources */,
@@ -401,11 +405,13 @@
 				DEVELOPMENT_TEAM = 4SF6PKKS2A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JasperQuiz/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "画像をアップロードする場合はライブラリへのアクセス許可をしてください。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -430,11 +436,13 @@
 				DEVELOPMENT_TEAM = 4SF6PKKS2A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JasperQuiz/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "画像をアップロードする場合はライブラリへのアクセス許可をしてください。";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

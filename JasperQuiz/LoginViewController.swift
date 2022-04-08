@@ -9,15 +9,16 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import FirebaseAuth
+import GoogleSignIn
 import PKHUD
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var dontHaveAccountButton: UIButton!
-    @IBAction func tappedDontHaveAccountButton(_ sender: Any) {
-        navigationController?.popViewController(animated: true)
+    
+    @IBAction func didTapSoginButton(_ sender: Any) {
+        auth()
     }
     @IBAction func tappedLoginButton(_ sender: Any) {
         HUD.show(.progress, onView: self.view)
@@ -33,6 +34,8 @@ class LoginViewController: UIViewController {
                 return
             }
             print("ログインに成功しました。")
+            UserDefaults.standard.set(email, forKey: "email")
+            UserDefaults.standard.set(password, forKey: "password")
             guard let uid = Auth.auth().currentUser?.uid else { return }
             let userRef = Firestore.firestore().collection("users").document(uid)
             userRef.getDocument{ ( snapshot, err ) in
@@ -46,24 +49,19 @@ class LoginViewController: UIViewController {
                 print("ユーザー情報の取得ができました。\(user.name)")
                 HUD.hide{ (_) in
                     HUD.flash(.success,onView: self.view,delay: 1) { (_) in
-                        self.presentToMyPageViewController(user: user)
+                        let tab = self.presentingViewController as? UITabBarController
+                        tab?.selectedIndex = 0
+                        self.presentToTabBarController()
                     }
                 }
             }
         }
-    }
-    private func presentToMyPageViewController(user: User) {
-        let storyBoard = UIStoryboard(name: "MyPage", bundle: nil)
-        let myPageViewController = storyBoard.instantiateViewController(identifier: "MyPageViewController") as! MyPageViewController
-        myPageViewController.user = user
-        navigationController?.pushViewController(myPageViewController, animated: true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
         loginButton.layer.cornerRadius = 10
-        loginButton.isEnabled = false
         loginButton.backgroundColor = UIColor.rgb(red: 150, green: 150, blue: 150)
         
         emailTextField.delegate = self
@@ -72,6 +70,41 @@ class LoginViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func presentToTabBarController() {
+        dismiss(animated: true)
+    }
+    
+    private func auth() {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
+        let config = GIDConfiguration(clientID: clientID)
+        
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+            if let error = error {
+                print("GIDSignInError: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let authentication = user?.authentication,
+                  let idToken = authentication.idToken else { return }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: authentication.accessToken)
+            self.login(credential: credential)
+        }
+    }
+    
+    private func login(credential: AuthCredential) {
+        Auth.auth().signIn(with: credential) { authResult, error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("ログイン完了")
+                let tab = self.presentingViewController as? UITabBarController
+                tab?.selectedIndex = 0
+                self.presentToTabBarController()
+            }
+        }
     }
     
     @objc func showKeyboard(notification: Notification){
@@ -87,17 +120,16 @@ class LoginViewController: UIViewController {
             self.view.transform = transform
         })
     }
+    
     @objc func hideKeyboard(){
-        
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: [], animations: {
             self.view.transform = .identity
         })
-        
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
 }
 
 extension LoginViewController: UITextFieldDelegate{
