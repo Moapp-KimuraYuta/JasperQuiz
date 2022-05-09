@@ -17,7 +17,7 @@ class QuizViewController: UIViewController {
     
     var csvArray: [String] = []
     var quizArray: [String] = []
-    var quizCount = 0
+    var quizCount = 1
     var correctCount = 0
 
     override func viewDidLoad() {
@@ -27,7 +27,7 @@ class QuizViewController: UIViewController {
 
         quizArray = csvArray[quizCount].components(separatedBy: ",")
         
-        quizNumberLabel.text = "第\(quizCount + 1)問"
+        quizNumberLabel.text = "第\(quizCount)問"
         quizTextView.text = quizArray[0]
         answerButton1.setTitle(quizArray[2], for: .normal)
         answerButton2.setTitle(quizArray[3], for: .normal)
@@ -58,7 +58,7 @@ class QuizViewController: UIViewController {
         
         if quizCount < csvArray.count {
             quizArray = csvArray[quizCount].components(separatedBy: ",")
-            quizNumberLabel.text = "第\(quizCount + 1)問"
+            quizNumberLabel.text = "第\(quizCount)問"
             quizTextView.text = quizArray[0]
             answerButton1.setTitle(quizArray[2], for: .normal)
             answerButton2.setTitle(quizArray[3], for: .normal)
