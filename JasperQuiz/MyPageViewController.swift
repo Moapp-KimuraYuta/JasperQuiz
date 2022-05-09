@@ -17,6 +17,17 @@ import PKHUD
 class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate{
     
     var user: User?
+    struct ScoreInfo{
+        let uid: String
+        let createdAt: Timestamp
+        let score: Int
+        
+        init(dic: [String:Any]) {
+            self.uid = dic["uid"] as! String
+            self.createdAt = dic["createdAt"] as! Timestamp
+            self.score = dic["score"] as! Int
+        }
+    }
     
     private let maxBioLength = 20
     private let storage = Storage.storage().reference()
@@ -24,15 +35,78 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
     @IBOutlet weak var changeImageButton: UIButton!
     @IBOutlet weak var bioTextField: UITextField!
     @IBOutlet weak var bioChangeButton: UIButton!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var createdAtLabel: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        bioTextField.delegate = self
+        logoutButton.layer.cornerRadius = 10
+        bioChangeButton.layer.cornerRadius = 10
+        iconImage.contentMode = .scaleAspectFit
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let userRef = Firestore.firestore().collection("users").document(uid)
+        userRef.getDocument{ ( snapshot, err ) in
+            if let err = err {
+                print("ユーザー情報の取得に失敗しました。\(err)")
+            }
+            guard let data = snapshot?.data() else { return }
+            
+            let user = User.init(dic: data)
+            
+            self.nameLabel.text = "name: " + user.name
+            self.emailLabel.text = "email: " + user.email
+            
+            let dateString = self.dateFormatterForCreatedAt(date: user.createdAt.dateValue())
+            self.createdAtLabel.text = "createdAt: " + dateString
+            
+            self.bioTextField.text = user.bio
+            let urlString = user.iconUrl
+            guard let url = URL(string: urlString) else { return }
+            
+            let task = URLSession.shared.dataTask(with: url, completionHandler: {data, _, error in
+                guard let data = data , error == nil else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+                    self.iconImage.image = image
+                }
+            })
+            task.resume()
+            NotificationCenter.default.addObserver(self, selector: #selector(self.showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(self.hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+            
+        }
+        let scoreRef = Firestore.firestore().collection("scores").whereField("uid", isEqualTo: uid).order(by: "score", descending: true).limit(to: 1)
+
+        scoreRef.getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("スコア情報の取得に失敗しました。\(err)")
+            }
+            if querySnapshot?.documents.isEmpty == true {
+                self.highScoreLabel.text = "highScore: 0点"
+            }else{
+                guard let data = querySnapshot?.documents[0].data() else { return }
+                let scoreInfo = ScoreInfo.init(dic: data)
+                self.highScoreLabel.text = "highScore: " + String(scoreInfo.score) + "点"
+            }
+        }
+    }
+    
     @IBAction func tappedBioChangeButton(_ sender: Any) {
         updateProfile()
     }
     @IBAction func tappedChangeImageButton(_ sender: Any) {
-        let picker = UIImagePickerController()
-        picker.sourceType = .photoLibrary
-        picker.delegate = self
-        picker.allowsEditing = true
-        present(picker, animated: true)
+        presentPhotoActionSheet()
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
         picker.dismiss(animated: true,completion: nil)
@@ -73,16 +147,31 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         })
     }
     
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController){
         picker.dismiss(animated: true,completion: nil)
     }
+
+    func presentPhotoActionSheet() {
+            let ac = UIAlertController(title: "プロフィール画像", message: nil, preferredStyle: .actionSheet)
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            ac.addAction(UIAlertAction(title: "写真を撮る", style: .default) { [weak self] _ in
+                let picker = UIImagePickerController()
+                picker.sourceType = .camera
+                picker.delegate = self
+                picker.allowsEditing = true
+                self?.present(picker, animated: true)
+            })
+            ac.addAction(UIAlertAction(title: "フォトライブラリーから選ぶ", style: .default) { [weak self] _ in
+                let picker = UIImagePickerController()
+                picker.sourceType = .photoLibrary
+                picker.delegate = self
+                picker.allowsEditing = true
+                self?.present(picker, animated: true)
+            })
+            present(ac, animated: true)
+        }
     
-    
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var createdAtLabel: UILabel!
-    @IBOutlet weak var lastScoreLabel: UILabel!
-    @IBOutlet weak var logoutButton: UIButton!
     @IBAction func tappedLogoutButton(_ sender: Any) {
         handleLogout()
     }
@@ -95,55 +184,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
             presentToLoginViewController()
         } catch (let err) {
             print("ログアウトに失敗しました。:\(err)")
-        }
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        bioTextField.delegate = self
-        logoutButton.layer.cornerRadius = 10
-        bioChangeButton.layer.cornerRadius = 10
-        iconImage.contentMode = .scaleAspectFit
-        
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        let userRef = Firestore.firestore().collection("users").document(uid)
-        userRef.getDocument{ ( snapshot, err ) in
-            if let err = err {
-                print("ユーザー情報の取得に失敗しました。\(err)")
-            }
-            guard let data = snapshot?.data() else { return }
-            
-            let user = User.init(dic: data)
-            
-            self.nameLabel.text = "name: " + user.name
-            self.emailLabel.text = "email: " + user.email
-            self.lastScoreLabel.text = "lastScore: " + String(user.lastScore) + "点"
-            
-            let dateString = self.dateFormatterForCreatedAt(date: user.createdAt.dateValue())
-            self.createdAtLabel.text = "createdAt: " + dateString
-            
-            self.bioTextField.text = user.bio
-            let urlString = user.iconUrl
-            guard let url = URL(string: urlString) else { return }
-            
-            let task = URLSession.shared.dataTask(with: url, completionHandler: {data, _, error in
-                guard let data = data , error == nil else {
-                    return
-                }
-                DispatchQueue.main.async {
-                    let image = UIImage(data: data)
-                    self.iconImage.image = image
-                }
-            })
-            task.resume()
-            NotificationCenter.default.addObserver(self, selector: #selector(self.showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(self.hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-            
         }
     }
     
@@ -165,7 +205,6 @@ class MyPageViewController: UIViewController, UIImagePickerControllerDelegate & 
         }
         
     }
-    
     
     private func presentToLoginViewController() {
         let storyBoard = UIStoryboard(name: "Login", bundle: nil)

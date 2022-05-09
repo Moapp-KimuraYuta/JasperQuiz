@@ -255,7 +255,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="scoreSaveButton:" destination="xnY-a8-ald" eventType="touchUpInside" id="FJq-Ny-UQo"/>
-                                    <action selector="toTopButtonAction:" destination="xnY-a8-ald" eventType="touchUpInside" id="efy-eq-aF5"/>
                                 </connections>
                             </button>
                         </subviews>

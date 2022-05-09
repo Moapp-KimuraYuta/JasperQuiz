@@ -18,31 +18,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyPage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRn-dd-haB">
-                                <rect key="frame" x="118" y="84" width="178" height="52"/>
+                                <rect key="frame" x="118" y="64" width="178" height="52"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eie-w7-nIs">
-                                <rect key="frame" x="50" y="292" width="42" height="18"/>
+                                <rect key="frame" x="50" y="277" width="42" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bvf-8a-DTc">
-                                <rect key="frame" x="50" y="320" width="40.5" height="18"/>
+                                <rect key="frame" x="50" y="305" width="40.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="createdAt:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrB-rm-l1t">
-                                <rect key="frame" x="50" y="348" width="71.5" height="18"/>
+                                <rect key="frame" x="50" y="333" width="71.5" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVo-tZ-wGA">
-                                <rect key="frame" x="107" y="663" width="200" height="50"/>
+                                <rect key="frame" x="107" y="713" width="200" height="50"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="C6V-6A-k6b"/>
@@ -58,7 +58,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVI-ih-D6w" userLabel="Bio Change Button">
-                                <rect key="frame" x="107" y="533" width="200" height="50"/>
+                                <rect key="frame" x="107" y="503" width="200" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="P1v-h2-HMQ"/>
@@ -74,13 +74,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qmM-Hr-3ju">
-                                <rect key="frame" x="181.5" y="404" width="51" height="39"/>
+                                <rect key="frame" x="181.5" y="389" width="51" height="39"/>
                                 <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Lc-Uf-G1W" userLabel="Bio Text Field">
-                                <rect key="frame" x="57" y="463" width="300" height="50"/>
+                                <rect key="frame" x="57" y="433" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Sbh-eY-Zeo"/>
                                     <constraint firstAttribute="height" constant="50" id="Yic-5q-l63"/>
@@ -89,14 +89,14 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="y5r-wt-P1t">
-                                <rect key="frame" x="157" y="146.5" width="100" height="99"/>
+                                <rect key="frame" x="157" y="126.5" width="100" height="99"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="hZK-VU-63T"/>
                                     <constraint firstAttribute="width" constant="100" id="jUC-Hb-lv3"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="of9-Dj-p9x">
-                                <rect key="frame" x="132" y="251" width="150" height="31"/>
+                                <rect key="frame" x="132" y="231" width="150" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="MfK-lo-CIq"/>
                                 </constraints>
@@ -106,8 +106,8 @@
                                     <action selector="tappedChangeImageButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="XkU-Yk-4Qs"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lastScore:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkz-wi-DA5">
-                                <rect key="frame" x="50" y="376" width="69" height="18"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="highScore:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkz-wi-DA5">
+                                <rect key="frame" x="50" y="361" width="74" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -122,22 +122,22 @@
                             <constraint firstItem="qmM-Hr-3ju" firstAttribute="top" secondItem="Fkz-wi-DA5" secondAttribute="bottom" constant="10" id="9r9-F0-Lwi"/>
                             <constraint firstItem="aVo-tZ-wGA" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="CTL-D9-oM4"/>
                             <constraint firstItem="eie-w7-nIs" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="Ddx-fm-plp"/>
-                            <constraint firstItem="eie-w7-nIs" firstAttribute="top" secondItem="of9-Dj-p9x" secondAttribute="bottom" constant="10" id="HjN-vh-cd4"/>
                             <constraint firstItem="qmM-Hr-3ju" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Hpc-or-1R8"/>
                             <constraint firstItem="bvf-8a-DTc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="Lm2-Dq-AWW"/>
                             <constraint firstItem="hVI-ih-D6w" firstAttribute="top" secondItem="6Lc-Uf-G1W" secondAttribute="bottom" constant="20" id="Lnx-Ng-NN2"/>
                             <constraint firstItem="hVI-ih-D6w" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="STG-hH-zCX"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aVo-tZ-wGA" secondAttribute="bottom" constant="100" id="Wxr-av-sxM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="aVo-tZ-wGA" secondAttribute="bottom" constant="50" id="Wxr-av-sxM"/>
                             <constraint firstItem="y5r-wt-P1t" firstAttribute="top" secondItem="mRn-dd-haB" secondAttribute="bottom" constant="10" id="bEY-OL-dZ5"/>
-                            <constraint firstItem="mRn-dd-haB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="cWK-Uh-mUR"/>
+                            <constraint firstItem="mRn-dd-haB" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="cWK-Uh-mUR"/>
                             <constraint firstItem="bvf-8a-DTc" firstAttribute="top" secondItem="eie-w7-nIs" secondAttribute="bottom" constant="10" id="f2X-Wa-cqO"/>
                             <constraint firstItem="of9-Dj-p9x" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="gQz-wV-zM8"/>
+                            <constraint firstItem="eie-w7-nIs" firstAttribute="top" secondItem="of9-Dj-p9x" secondAttribute="bottom" constant="15" id="gRz-4Y-GCg"/>
                             <constraint firstItem="mRn-dd-haB" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="l6a-Cc-Uc6"/>
                             <constraint firstItem="of9-Dj-p9x" firstAttribute="top" secondItem="y5r-wt-P1t" secondAttribute="bottom" constant="5" id="lVe-r2-nw3"/>
                             <constraint firstItem="Fkz-wi-DA5" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="mwa-Ip-PH2"/>
                             <constraint firstItem="6Lc-Uf-G1W" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="s4I-Ij-pK3"/>
                             <constraint firstItem="wrB-rm-l1t" firstAttribute="top" secondItem="bvf-8a-DTc" secondAttribute="bottom" constant="10" id="xDC-zX-FP1"/>
-                            <constraint firstItem="6Lc-Uf-G1W" firstAttribute="top" secondItem="qmM-Hr-3ju" secondAttribute="bottom" constant="20" id="yKU-JQ-ljR"/>
+                            <constraint firstItem="6Lc-Uf-G1W" firstAttribute="top" secondItem="qmM-Hr-3ju" secondAttribute="bottom" constant="5" id="yKU-JQ-ljR"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MyPage" image="person.circle" catalog="system" id="jcP-UC-BfE"/>
@@ -149,8 +149,8 @@
                         <outlet property="changeImageButton" destination="of9-Dj-p9x" id="jbn-KC-1Mc"/>
                         <outlet property="createdAtLabel" destination="wrB-rm-l1t" id="36C-Bq-Ic9"/>
                         <outlet property="emailLabel" destination="bvf-8a-DTc" id="oBk-Z5-B2y"/>
+                        <outlet property="highScoreLabel" destination="Fkz-wi-DA5" id="kIK-XH-nJk"/>
                         <outlet property="iconImage" destination="y5r-wt-P1t" id="oet-4R-m4a"/>
-                        <outlet property="lastScoreLabel" destination="Fkz-wi-DA5" id="oMB-9Q-VL5"/>
                         <outlet property="logoutButton" destination="aVo-tZ-wGA" id="Fhu-RA-elE"/>
                         <outlet property="nameLabel" destination="eie-w7-nIs" id="xha-4o-phJ"/>
                     </connections>

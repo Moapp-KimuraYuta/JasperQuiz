@@ -210,16 +210,26 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ebf-pe-rkL" customClass="GIDSignInButton">
-                                <rect key="frame" x="57" y="513.5" width="300" height="50"/>
+                                <rect key="frame" x="57" y="568" width="300" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="EUe-Jo-yB9"/>
                                     <constraint firstAttribute="height" constant="50" id="HDO-Pw-G9y"/>
                                 </constraints>
                                 <connections>
-                                    <action selector="didTapSoginButton:" destination="7JF-An-xgE" eventType="touchUpInside" id="jEz-Sv-gbd"/>
+                                    <action selector="didTapLoginButton:" destination="7JF-An-xgE" eventType="valueChanged" id="tpP-Dp-yGG"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Sn-Ph-CNA">
+                                <rect key="frame" x="125.5" y="513.5" width="163.5" height="34.5"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Twitterでログイン">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="17"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="twitterSignInButton:" destination="7JF-An-xgE" eventType="touchUpInside" id="sA4-91-7pf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="lYs-kw-RmY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -228,12 +238,14 @@
                             <constraint firstItem="ebf-pe-rkL" firstAttribute="centerX" secondItem="Zqt-dc-JdO" secondAttribute="centerX" id="7dA-UY-qh7"/>
                             <constraint firstItem="l5e-o5-gTE" firstAttribute="top" secondItem="a9C-wX-RZ4" secondAttribute="bottom" constant="40" id="7ez-Uh-E46"/>
                             <constraint firstItem="lYs-kw-RmY" firstAttribute="trailing" secondItem="a9C-wX-RZ4" secondAttribute="trailing" constant="40" id="94k-XW-cVP"/>
+                            <constraint firstItem="5Sn-Ph-CNA" firstAttribute="top" secondItem="H9w-FU-aqn" secondAttribute="bottom" constant="20" id="CCG-TK-fP6"/>
                             <constraint firstItem="H9w-FU-aqn" firstAttribute="centerX" secondItem="Zqt-dc-JdO" secondAttribute="centerX" id="HIz-ui-WTM"/>
                             <constraint firstItem="l5e-o5-gTE" firstAttribute="centerX" secondItem="Zqt-dc-JdO" secondAttribute="centerX" id="JrX-2A-lu4"/>
                             <constraint firstItem="H9w-FU-aqn" firstAttribute="top" secondItem="l5e-o5-gTE" secondAttribute="bottom" constant="30" id="Mgi-GK-azG"/>
                             <constraint firstItem="a9C-wX-RZ4" firstAttribute="centerX" secondItem="Zqt-dc-JdO" secondAttribute="centerX" id="UkZ-B5-vfO"/>
+                            <constraint firstItem="5Sn-Ph-CNA" firstAttribute="centerX" secondItem="Zqt-dc-JdO" secondAttribute="centerX" id="h4h-h8-sTH"/>
                             <constraint firstItem="a9C-wX-RZ4" firstAttribute="top" secondItem="lYs-kw-RmY" secondAttribute="top" constant="80" id="mdj-7q-sl2"/>
-                            <constraint firstItem="ebf-pe-rkL" firstAttribute="top" secondItem="H9w-FU-aqn" secondAttribute="bottom" constant="20" id="tkJ-Ws-9qz"/>
+                            <constraint firstItem="ebf-pe-rkL" firstAttribute="top" secondItem="5Sn-Ph-CNA" secondAttribute="bottom" constant="20" id="tkJ-Ws-9qz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="MyPage" image="person" catalog="system" id="Of9-04-f85"/>

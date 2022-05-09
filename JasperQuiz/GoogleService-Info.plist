@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>295228823717-3f6q8jejbjld1df9m8bchv3s9bid0ov2.apps.googleusercontent.com</string>
+	<string>295228823717-siiqpvntf8evm1vg9emp8r4cm6kjef6k.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.295228823717-3f6q8jejbjld1df9m8bchv3s9bid0ov2</string>
+	<string>com.googleusercontent.apps.295228823717-siiqpvntf8evm1vg9emp8r4cm6kjef6k</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBhZsedfVE2ceK1KObvds8EMY0JoqGNFEw</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.kimu0929.JasperQuiz</string>
+	<string>com.kimu0929.JasperQuiz220422</string>
 	<key>PROJECT_ID</key>
 	<string>loginwithfirebaseapp-e3112</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:295228823717:ios:221135edbcfab15002554c</string>
+	<string>1:295228823717:ios:d048b3a5953d0c4902554c</string>
 </dict>
 </plist>

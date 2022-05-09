@@ -18,17 +18,11 @@ class ScoreViewController: UIViewController {
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var fanLevelLabel: UILabel!
     @IBOutlet weak var goodScoreImage: UIImageView!
-    @IBAction func scoreSaveButton(_ sender: Any) {
-        saveScore()
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true)
-    }
-    
     var correct = 0
     var allCorrecrTF = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         goodScoreImage.isHidden = true
         scoreLabel.text = "\(correct)問正解！"
         if allCorrecrTF == true {
@@ -38,40 +32,46 @@ class ScoreViewController: UIViewController {
         }else{
             fanLevelLabel.text = ""
         }
-
-        // Do any additional setup after loading the view.
     }
     
+    @IBAction func scoreSaveButton(_ sender: Any) {
+        saveScore()
+    }
+
     @IBAction func toTopButtonAction(_ sender: Any) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true)
     }
     
     private func saveScore() {
-            HUD.show(.progress, onView: self.view)
-            guard let userId = Auth.auth().currentUser?.uid else { fatalError() }
-            let ref = Firestore.firestore().collection("users").document(userId)
-            
-            ref.updateData([
-                "lastScore": self.correct
-            ]) { err in
-                if let err = err {
-                    print("情報の更新に失敗しました: \(err)")
-                    HUD.hide{ (_) in HUD.flash(.error, delay: 1)}
-                } else {
-                    print("情報の更新ができました！")
-                    HUD.hide{ (_) in HUD.flash(.success, delay: 1)}
+        HUD.show(.progress, onView: self.view)
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let score = self.correct
+        let time = Timestamp()
+        let docData = ["uid": uid,"createdAt": time,"score":score] as [String : Any]
+        let userRef = Firestore.firestore().collection("scores").document()
+        userRef.setData(docData) { (err) in
+            if let err = err {
+                print("スコア情報の保存に失敗しました。\(err)")
+                HUD.hide{ (_) in HUD.flash(.error, delay: 1)}
+                return
+            }
+            print("スコア情報の保存に成功しました。")
+            HUD.hide{ (_) in
+                HUD.flash(.success,onView: self.view,delay: 1) { (_) in
+                    self.presentingViewController?.presentingViewController?.dismiss(animated: true)
                 }
             }
-
         }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destination.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+

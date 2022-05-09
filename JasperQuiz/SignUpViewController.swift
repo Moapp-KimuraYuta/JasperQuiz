@@ -15,7 +15,6 @@ struct User{
     let name: String
     let createdAt: Timestamp
     let email: String
-    let lastScore: Int
     let bio: String
     let iconUrl: String
     
@@ -23,7 +22,6 @@ struct User{
         self.name = dic["name"] as! String
         self.createdAt = dic["createdAt"] as! Timestamp
         self.email = dic["email"] as! String
-        self.lastScore = dic["lastScore"] as! Int
         self.bio = dic["bio"] as! String
         self.iconUrl = dic["iconUrl"] as! String
     }
@@ -35,6 +33,21 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        registerButton.layer.cornerRadius = 10
+        registerButton.backgroundColor = UIColor.rgb(red: 150, green: 150, blue: 150)
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        usernameTextField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     @IBAction func tappedRegisterButton(_ sender: Any) {
         handleAuthToFirebase()
     }
@@ -43,21 +56,7 @@ class SignUpViewController: UIViewController {
         let loginViewController = storyBoard.instantiateViewController(identifier: "LoginViewController") as! LoginViewController
         navigationController?.pushViewController(loginViewController, animated: true)
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        registerButton.layer.cornerRadius = 10
-        registerButton.backgroundColor = UIColor.rgb(red: 150, green: 150, blue: 150)
-        
-        emailTextField.delegate = self
-        passwordTextField.delegate = self
-        usernameTextField.delegate = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(showKeyboard), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(hideKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
+    
     private func handleAuthToFirebase() {
         HUD.show(.progress, onView: view)
         guard let email = emailTextField.text else { return }
@@ -77,8 +76,7 @@ class SignUpViewController: UIViewController {
         guard let name = self.usernameTextField.text else { return }
         let bio = "よろしくおねがいします。"
         let iconUrl = ""
-        let lastScore = 0
-        let docData = ["email": email,"name": name,"createdAt": Timestamp(),"lastScore":lastScore,"bio": bio,"iconUrl": iconUrl] as [String : Any]
+        let docData = ["email": email,"name": name,"createdAt": Timestamp(),"bio": bio,"iconUrl": iconUrl] as [String : Any]
         let userRef = Firestore.firestore().collection("users").document(uid)
         userRef.setData(docData) { (err) in
             if let err = err {
@@ -128,6 +126,14 @@ class SignUpViewController: UIViewController {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    private func dateFormatterForCreatedAt(date:Date) -> String {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .gregorian)
+        formatter.locale = Locale(identifier: "ja_JP")
+        formatter.timeZone = TimeZone(identifier:  "Asia/Tokyo")
+        formatter.dateFormat = "yyyy年MM月dd日 HH時mm分ss秒SSS"
+        return formatter.string(from: date)
     }
 }
 extension SignUpViewController: UITextFieldDelegate {
